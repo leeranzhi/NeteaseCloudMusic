@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="UserActivityTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--切换activity时屏幕不变暗-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--窗口的背景设置成透明 ,这样的话在我们每个界面的根布局都要设置background,要不然就是透明的-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+</resources>
