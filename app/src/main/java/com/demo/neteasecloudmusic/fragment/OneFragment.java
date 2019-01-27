@@ -109,7 +109,7 @@ public class OneFragment extends Fragment {
 
 
     /**
-     * 查询内存中的播放列表数据
+     * 查询内存中的用户歌单数据
      */
     private void queryPlayList() {
 
@@ -266,7 +266,8 @@ public class OneFragment extends Fragment {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
             PlayList playList = mPlayLists.get(position);
-            Glide.with(mContext).load(playList.ImageUrl).into(holder.playlistImage);
+            //此处加载小图, 以加快速度
+            Glide.with(mContext).load(playList.ImageUrl + "?param=140y140").into(holder.playlistImage);
             holder.playlistName.setText(playList.playListName);
 
             StringBuilder resultCount = new StringBuilder();
