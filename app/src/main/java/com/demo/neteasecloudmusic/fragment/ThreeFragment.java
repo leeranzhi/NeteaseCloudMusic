@@ -35,26 +35,18 @@ import okhttp3.Response;
 
 
 public class ThreeFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private final String baseUrl = "http://47.94.88.105:3000/user/event?uid=";
     private static final String ARG_PARAM1 = "userId";
     private static final String ARG_PARAM2 = "param2";
     private AVLoadingIndicatorView avi;
-    // TODO: Rename and change types of parameters
     private int userId;
     private RecyclerView recyclerView;
     private EventListAdapter eventListAdapter;
     private List<Events> eventsList = new ArrayList<>();
-    private OnFragmentInteractionListener mListener;
     private static final String TAG = "ThreeFragment";
     private LinearLayout zeroEvent;
     private TextView errorMessage;
-
-    public ThreeFragment() {
-        // Required empty public constructor
-    }
-
 
     public static ThreeFragment newInstance(int userId, String param2) {
         ThreeFragment fragment = new ThreeFragment();
@@ -172,36 +164,6 @@ public class ThreeFragment extends Fragment {
     }
 
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
-
     /**
      * 内部适配器
      */
@@ -230,6 +192,7 @@ public class ThreeFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
             Events events = eventsList.get(position);
             Glide.with(mContext).load(events.userMessage.avatarUrl).into(holder.userImage);
             holder.userName.setText(events.userMessage.nickname);

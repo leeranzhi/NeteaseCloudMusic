@@ -239,9 +239,9 @@ public class OneFragment extends Fragment {
 
             public ViewHolder(View view) {
                 super(view);
-                playlistImage = (ImageView) view.findViewById(R.id.playlist_image);
-                playlistName = (TextView) view.findViewById(R.id.playlist_Name);
-                playCount = (TextView) view.findViewById(R.id.play_count);
+                playlistImage = view.findViewById(R.id.playlist_image);
+                playlistName = view.findViewById(R.id.playlist_Name);
+                playCount = view.findViewById(R.id.play_count);
 
             }
         }

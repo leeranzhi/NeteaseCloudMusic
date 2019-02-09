@@ -27,6 +27,7 @@ import com.demo.neteasecloudmusic.fragment.ThreeFragment;
 import com.demo.neteasecloudmusic.gson.playList.PlayList;
 import com.demo.neteasecloudmusic.gson.user.User;
 import com.demo.neteasecloudmusic.gson.playList.UserPlayList;
+import com.demo.neteasecloudmusic.util.UiUtil;
 import com.r0adkll.slidr.Slidr;
 import com.r0adkll.slidr.model.SlidrConfig;
 import com.r0adkll.slidr.model.SlidrPosition;
@@ -34,8 +35,7 @@ import com.r0adkll.slidr.model.SlidrPosition;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserActivity extends AppCompatActivity implements ViewPager
-        .OnPageChangeListener, TabLayout.OnTabSelectedListener,ThreeFragment.OnFragmentInteractionListener {
+public class UserActivity extends AppCompatActivity  {
 
     private String TAG = "UserActivity";
     private Intent intent;
@@ -74,7 +74,7 @@ public class UserActivity extends AppCompatActivity implements ViewPager
         }
         loadUserImageView();
         //添加右滑返回功能
-        initSlidr(this);
+        UiUtil.initSlidr(this);
         initViewPager();
 
     }
@@ -83,10 +83,10 @@ public class UserActivity extends AppCompatActivity implements ViewPager
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
 
-
-        //注册监听
-        viewPager.addOnPageChangeListener(this);
-        tabLayout.addOnTabSelectedListener(this);
+//
+//        //注册监听
+//        viewPager.addOnPageChangeListener(this);
+//        tabLayout.addOnTabSelectedListener(this);
 
 //        for(int i=0;i<3;i++){
 //            OneFragment oneFragment=OneFragment.newInstance(user.profile.userId);
@@ -99,19 +99,11 @@ public class UserActivity extends AppCompatActivity implements ViewPager
                 (getSupportFragmentManager(), user.profile.userId);
         viewPager.setAdapter(myAdapter);
         viewPager.setCurrentItem(0);
+        tabLayout.setupWithViewPager(viewPager);
 
 //        tabLayout.setupWithViewPager(viewPager);
     }
 
-    public static void initSlidr(Context context) {
-        SlidrConfig config = new SlidrConfig.Builder()
-                //滑动起始方向
-                .position(SlidrPosition.LEFT)
-                .edge(true)
-                .edgeSize(0.18f)
-                .build();
-        Slidr.attach((Activity) context, config);
-    }
 
     private void loadUserImageView() {
         intent = getIntent();
@@ -134,8 +126,8 @@ public class UserActivity extends AppCompatActivity implements ViewPager
             case R.id.share:
                 Toast.makeText(this, "点击了分享", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(this, LoadActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(this, LoadActivity.class);
+//                startActivity(intent);
                 break;
             case android.R.id.home:
                 finish();
@@ -145,54 +137,10 @@ public class UserActivity extends AppCompatActivity implements ViewPager
         return super.onOptionsItemSelected(item);
     }
 
-
-    /**
-     * 实现监听事件的方法
-     *
-     * @param tab
-     */
-
     @Override
-    public void onTabSelected(TabLayout.Tab tab) {
-        //TabLayout中的TabItem被选中时触发
-        viewPager.setCurrentItem(tab.getPosition());
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.d(TAG,"UserActivity>>>>>onDestroy!!!");
     }
 
-    @Override
-    public void onTabUnselected(TabLayout.Tab tab) {
-
-    }
-
-    @Override
-    public void onTabReselected(TabLayout.Tab tab) {
-
-    }
-
-    /**
-     * @param i
-     * @param v
-     * @param i1
-     */
-
-    @Override
-    public void onPageScrolled(int i, float v, int i1) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        //viewPager滑动之后显示触发
-        tabLayout.getTabAt(position).select();
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int i) {
-    }
-
-
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 }

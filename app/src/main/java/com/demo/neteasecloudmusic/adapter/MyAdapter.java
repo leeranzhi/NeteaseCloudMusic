@@ -20,20 +20,15 @@ public class MyAdapter extends FragmentPagerAdapter {
         this.userId = userId;
     }
 
-//    public MyAdapter(FragmentManager fm, List<OneFragment> fragmentsList) {
-//        super(fm);
-//        oneFragmentList = fragmentsList;
-//    }
 
     @Override
     public Fragment getItem(int position) {
         Log.d("MyAdapter查看!!!!", "" + position);
-//        return oneFragmentList.get(position);
         switch (position) {
             case 0:
                 return OneFragment.newInstance(userId);
             case 1:
-                return ThreeFragment.newInstance(userId,null);
+                return ThreeFragment.newInstance(userId, null);
             case 2:
                 return TwoFragment.newInstance(userId);
             default:
@@ -48,9 +43,24 @@ public class MyAdapter extends FragmentPagerAdapter {
         return 3;
     }
 
-//    @Override
-//    public CharSequence getPageTitle(int position) {
-//        return "动态";
-//    }
+    @Override
+    public CharSequence getPageTitle(int position) {
+        String tab_name="";
+
+        switch(position){
+            case 0:
+                tab_name="音乐";
+                break;
+            case 1:
+                tab_name="动态";
+                break;
+            case 2:
+                tab_name="关于";
+                break;
+            default:
+                break;
+        }
+        return tab_name;
+    }
 
 }

@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import com.demo.neteasecloudmusic.R;
 import com.demo.neteasecloudmusic.fragment.SettingFragment;
-import com.demo.neteasecloudmusic.ui.UserActivity;
+import com.demo.neteasecloudmusic.util.UiUtil;
 import com.demo.neteasecloudmusic.util.UpdateUtil;
 
 public class BaseActivity extends AppCompatActivity implements
@@ -32,7 +32,7 @@ public class BaseActivity extends AppCompatActivity implements
         } catch (Exception e) {
             e.printStackTrace();
         }
-        UserActivity.initSlidr(this);
+        UiUtil.initSlidr(this);
 
     }
 
@@ -43,7 +43,7 @@ public class BaseActivity extends AppCompatActivity implements
     }
 
     private void initToolbar() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar_base);
+        toolbar =  findViewById(R.id.toolbar_base);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -96,13 +96,8 @@ public class BaseActivity extends AppCompatActivity implements
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
                                           String key) {
-//        if(key.equals(LOAD_SETTING)){
-//            Preference conectPref=findPreference(key);
-//
-//            conectPref.setSummary(sharedPreferences.getBoolean(key,""));
-//
-//
-//        }
+
+
 
     }
 

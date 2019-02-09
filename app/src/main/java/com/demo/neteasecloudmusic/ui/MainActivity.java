@@ -51,13 +51,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        submit_button = (Button) findViewById(R.id.submit_button);
-        reset_button = (Button) findViewById(R.id.reset_button);
-        input_text = (EditText) findViewById(R.id.input_text);
-        result_content = (TextView) findViewById(R.id.result_content);
-        result_image = (PhotoView) findViewById(R.id.result_image);
+        submit_button = findViewById(R.id.submit_button);
+        reset_button = findViewById(R.id.reset_button);
+        input_text = findViewById(R.id.input_text);
+        result_content = findViewById(R.id.result_content);
+        result_image = findViewById(R.id.result_image);
 
         submit_button.setOnClickListener(this);
         reset_button.setOnClickListener(this);
@@ -78,12 +78,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "此时活动onCreate!!!");
         handleIntent();
 
-        SlideBack.register(this, new SlideBackCallBack() {
-            @Override
-            public void onSlideBack() {
-                Toast.makeText(MainActivity.this, "退出", Toast.LENGTH_LONG).show();
-            }
-        });
+//        SlideBack.register(this, new SlideBackCallBack() {
+//            @Override
+//            public void onSlideBack() {
+//                Toast.makeText(MainActivity.this, "退出", Toast.LENGTH_LONG).show();
+//                finish();
+//            }
+//        });
 
     }
 

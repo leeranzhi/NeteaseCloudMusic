@@ -67,7 +67,6 @@
         <activity
             android:name=".ui.UserActivity"
             android:theme="@style/UserActivityTheme" />
-        <activity android:name=".ui.LoadActivity"></activity>
     </application>
 
 </manifest>
