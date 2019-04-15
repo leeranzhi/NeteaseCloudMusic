@@ -39,6 +39,6 @@
 5.应用设置
 
 <div align="center">
-    <img src="https://github.com/leeranzhi/ganktest/blob/master/Screenshot/S80608-175637.jpg" width=“35%” height="35%">
+<img src="https://github.com/leeranzhi/ganktest/blob/master/Screenshot/S80608-175637.jpg" width="35%" height="35%">
 </div>
 
