@@ -28,6 +28,7 @@
 </div>
 
 
+
 4.个人动态查看
 
 <div align="center">
@@ -38,5 +39,6 @@
 5.应用设置
 
 <div align="center">
-    <img src="https://github.com/leeranzhi/NeteaseCloudMusic/blob/master/Screenshot/Screenshot_20190415-171200.png" width=“35%” height="35%">
+    <img src="https://github.com/leeranzhi/ganktest/blob/master/Screenshot/S80608-175637.jpg" width=“35%” height="35%">
 </div>
+
